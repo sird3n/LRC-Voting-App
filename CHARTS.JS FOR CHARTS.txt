@@ -1,0 +1,36 @@
+CHARTS.JS FOR CHARTS
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Voting Results</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Live Voting Results</h1>
+    <canvas id="voteChart"></canvas>
+
+    <script>
+        const labels = {{ results | map(attribute='name') | list | safe }};
+        const data = {{ results | map(attribute='vote_count') | list | safe }};
+
+        new Chart(document.getElementById('voteChart'), {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Votes',
+                    data: data,
+                    backgroundColor: ['#4e79a7', '#f28e2b', '#e15759']
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+GRANT CREATE ON DATABASE demo TO username;
+
+drop TABLE votes;
+DROP TABLE users;
+DROP TABLE candidates;
+
+-- users table
+CREATE TABLE users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    student_id VARCHAR(50) UNIQUE NOT NULL,
+    name VARCHAR(100) NOT NULL,
+    has_voted BOOLEAN DEFAULT FALSE
+);
+
+-- candidates table
+CREATE TABLE candidates (
+    id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    name VARCHAR(100) NOT NULL,
+  	grade VARCHAR(3) NOT NULL,
+    photo TEXT,  -- store image URL or path
+    details TEXT
+);
+
+-- votes table
+CREATE TABLE votes (
+    id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    user_id INTEGER NOT NULL REFERENCES users(id),
+    candidate_id INTEGER NOT NULL REFERENCES candidates(id),
+    voted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+-- TEST DATA
+DELETE FROM votes;
+DELETE FROM users;
+DELETE FROM candidates;
+
+-- Sample users
+INSERT INTO users (student_id, name) VALUES
+('stu001', 'Alice Mathews'),
+('stu002', 'Bob Johnson'),
+('stu003', 'Carol Smith');
+
+-- Sample candidates
+INSERT INTO candidates (name, grade, photo, details) VALUES
+('David Nkosi', '12B', 'david.jpg', 'Grade 12 - Promises transparency and better communication.'),
+('Eva Thomas', '11D', 'eva.jpg', 'Grade 11 - Focused on student wellness and mental health support.'),
+('Frank Moyo', '12A', 'frank.jpg', 'Grade 12 - Wants to upgrade library and study spaces.');
+
+
+-- Sample votes
+INSERT INTO votes (user_id, candidate_id) VALUES
+(1, 2),
+(2, 1),
+(3, 2);
+
+-- Update has_voted status
+UPDATE users SET has_voted = 1 WHERE id IN (1, 2, 3);
+
+SELECT * FROM candidates
+
+
+
+
+

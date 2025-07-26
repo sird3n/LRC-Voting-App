@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title> CJ LRC Voting Portal</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="logo">CJ LRC Voting Portal</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="admin-page.html">Admin</a></li>
+      <li><a href="voting-page.html">Candidates 2025</a></li>
+      <li><a href="current.html">Current LRC's</a></li>
+      <li><a href="#">Sign In</a></li>
+    </ul>
+  </nav>
+
+  <!-- Sign In Page (signin.html) -->
+  <div class="page" id="signin-page">
+    <form action="/login" method="POST" class="signin-form">
+      <h2>Sign In</h2>
+      <input type="text" name="student_name" placeholder="Full Name" required>
+      <input type="text" name="student_id" placeholder="Student ID" required>
+      <button type="submit">Sign In</button>
+    </form>
+  </div>
+</body>
+</html>

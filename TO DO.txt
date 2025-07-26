@@ -1,0 +1,9 @@
+TO DO
+- Add backend functionality to submit vote
+- Add backend functionality to signin and redirect user to voting page
+- Add dark-ish background image on home page
+- Use data from DB to populate candidate list
+- Link vote counts in DB to results chart
+- Allow only teacher or admin to access admin page
+- Access candidates/voting page for viewing only, cannot vote unless logged in.
+

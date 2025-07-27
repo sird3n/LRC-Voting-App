@@ -1,6 +1,6 @@
 GRANT CREATE ON DATABASE demo TO username;
-
-drop TABLE votes;
+CREATE DATABASE CJVOTEdb;
+DROP TABLE votes;
 DROP TABLE users;
 DROP TABLE candidates;
 
